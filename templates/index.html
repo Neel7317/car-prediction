@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body style="background-color:yellow;">
+  <center>
+ <div class="login">
+	
+  <h1>Predict second hand car price </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" style="background-color:yellow;" id="carform">
+    	<label>Purchesd Price</label>:<input type="text" name="presentprice" placeholder="Current price(Lacs)" required="required" /></br></br>
+      <label>Kilometer Driven</label>:<input type="text" name="km" placeholder="Kms_driven" required="required" /></br></br>
+	    <label>Previous Owner</label>:<input type="text" name="pastowner" placeholder="Past Owner(e.g. 0,1,2..)" required="required" /></br></br>
+      <label>Age of car(Year)</label>:<input type="text" name="Age" placeholder="Age of car" required="required" /></br></br>
+      <label for="Fual_type">Fual Type of car:</label>
+      <select name="Fual_type" id="cars">
+          <option value="Diesel">Diesel</option>
+          <option value="Petrol">Petrol</option>
+          <option value="CNG">CNG</option>
+      </select></br></br>
+      <label for="Seller_type">Seller Details:</label>
+      <select name="Seller_type" id="cars">
+          <option value="Dealer">Dealer</option>
+          <option value="Individual">Individual</option>
+          
+      </select></br></br>
+      <label for="Transmission">Transmission:</label>
+      <select name="Transmission" id="cars">
+          <option value="Manual">Manual</option>
+          <option value="Auto">Auto</option>
+          
+      </select></br></br>
+      
+      
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</center>>
+</body>
+</html>
